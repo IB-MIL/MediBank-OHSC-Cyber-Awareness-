@@ -56,10 +56,10 @@ The one exception is the Advanced Vishguard level. If you record a response ther
 
 ## The team
 
-- **[Ibrahim](https://github.com/IB-MIL):** connected the three activities into one app, built the home page and UI, and researched the OSHC content.
-- **[waltuh9283](https://github.com/waltuh9283):** [add what they built]
-- **[rae3264](https://github.com/rae3264):** [add what they built]
-- **[M-Mendis](https://github.com/M-Mendis):** [add what they built]
+- **[Ibrahim](https://github.com/IB-MIL)
+- **[waltuh9283](https://github.com/waltuh9283)
+- **[rae3264](https://github.com/rae3264)
+- **[M-Mendis](https://github.com/M-Mendis)
 
 ## Credits
 
