@@ -1,0 +1,318 @@
+/* ------------------------------------------------------------------
+   Theme for every page. Loaded first by app.py.
+   Teammates' module files are not edited: their own CSS still loads, and
+   the .stApp prefix plus !important is what lets these rules win.
+   ------------------------------------------------------------------ */
+:root {
+  --primary: #DD0822;
+  --primary-dark: #B90A1F;
+  --ink: #111826;
+  --ink-muted: #4A5362;
+  --tile-1: #4054B8;
+  --tile-2: #00838C;
+  --tile-3: #111826;
+  --link: #4054B8;
+  --band-1: #FAFBFC;
+  --band-2: #F2F4F7;
+  --line: #D8DBE3;
+  --footer: #1A1A1A;
+  --footer-bar: #090D14;
+  --ok-tint: #E6F4F4;
+  --bad-tint: #FDECEE;
+  --chevron-white: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E");
+}
+
+/* ---- Base ---- */
+.stApp {
+  background: #fff !important;
+  color: var(--ink) !important;
+  line-height: 24px;
+}
+header[data-testid="stHeader"] { display: none !important; }
+/* The page container is opened up so bars and bands can run full width. */
+.stApp [data-testid="stMainBlockContainer"] {
+  max-width: none !important;
+  padding: 0 !important;
+}
+.stApp [data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] { gap: 0 !important; }
+[data-testid="stMain"] { scroll-behavior: smooth; }
+.stApp [data-testid="stMarkdownContainer"] p,
+.stApp [data-testid="stMarkdownContainer"] li { line-height: 24px; }
+.stApp a { color: var(--link); }
+
+/* ---- Headings ---- */
+.stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
+  font-family: inherit !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--ink);
+}
+.stApp h1 { font-size: 52px !important; line-height: 56px !important; }
+.stApp h2 { font-size: 38px !important; line-height: 48px !important; }
+.stApp h3 { font-size: 28px !important; line-height: 32px !important; }
+.stApp h4 { font-size: 21px !important; line-height: 24px !important; }
+
+/* ---- Streamlit buttons ---- */
+.stApp div.stButton > button {
+  min-height: 40px !important;
+  padding: 3px 16px 1px !important;
+  border-radius: 1px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  box-shadow: none !important;
+  transition: 0.2s ease-in-out !important;
+}
+.stApp div.stButton > button p {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+.stApp div.stButton > button[kind="primary"] {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #fff !important;
+}
+.stApp div.stButton > button[kind="primary"]:hover {
+  background: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  color: #fff !important;
+}
+.stApp div.stButton > button[kind="secondary"] {
+  background: transparent !important;
+  border-color: var(--ink) !important;
+  color: var(--ink) !important;
+}
+.stApp div.stButton > button[kind="secondary"]:hover {
+  background: var(--band-2) !important;
+  border-color: var(--ink) !important;
+  color: var(--ink) !important;
+}
+.stApp div.stButton > button:disabled {
+  background: var(--band-2) !important;
+  border-color: var(--line) !important;
+  color: var(--ink-muted) !important;
+}
+
+/* ---- Keyboard focus, everywhere ---- */
+.stApp a:focus-visible,
+.stApp button:focus-visible,
+.stApp summary:focus-visible,
+.stApp input:focus-visible {
+  outline: 3px solid var(--tile-1) !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+
+/* ---- Link-style buttons drawn in HTML (anchors) ---- */
+.ui-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 3px 16px 1px;
+  border: 2px solid transparent;
+  border-radius: 1px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  text-decoration: none !important;
+  transition: 0.2s ease-in-out;
+}
+.ui-btn--lg { min-height: 48px; padding: 0 24px; font-size: 18px; line-height: 44px; }
+.ui-btn--primary { background: var(--primary); border-color: var(--primary); color: #fff !important; }
+.ui-btn--primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.ui-btn--outline { background: transparent; border-color: var(--ink); color: var(--ink) !important; }
+.ui-btn--outline:hover { background: var(--band-2); }
+.ui-btn--outline-white { background: transparent; border-color: #fff; color: #fff !important; }
+.ui-btn--outline-white:hover { background: rgba(255, 255, 255, 0.14); }
+.ui-btn--pill {
+  min-height: 38px; padding: 3px 16px; border-radius: 100px;
+  background: var(--primary); border-color: var(--primary);
+  color: #fff !important; font-size: 14px; line-height: 28px;
+}
+.ui-btn--pill:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+
+/* ---- Student notice strip and top bar ---- */
+.ui-notice {
+  background: var(--band-2);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px max(16px, calc((100% - 1116px) / 2));
+}
+.ui-logo { display: block; width: 126px; height: auto; }
+.ui-wordmark { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; line-height: 22px; }
+
+/* ---- Module pages ---- */
+.st-key-topbar {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  min-height: 64px;
+  padding: 8px max(16px, calc((100% - 1116px) / 2)) !important;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.st-key-topbar > div { width: auto !important; flex: 0 0 auto !important; }
+.st-key-module-body {
+  width: 100% !important;
+  max-width: 852px !important;
+  margin: 0 auto !important;
+  padding: 32px 16px 80px !important;
+}
+
+/* ---- Common widgets used by the modules ---- */
+.stApp [data-testid="stExpander"] details {
+  border: 1px solid var(--line) !important;
+  border-radius: 1px !important;
+  background: #fff !important;
+}
+.stApp [data-testid="stExpander"] summary,
+.stApp [data-testid="stExpander"] summary * { color: var(--ink) !important; }
+.stApp [data-testid="stExpander"] summary:hover { background: var(--band-2) !important; }
+.stApp [data-testid="stAlertContainer"] {
+  border-radius: 1px !important;
+  color: var(--ink) !important;
+}
+.stApp [data-testid="stAlertContainer"] * { color: var(--ink) !important; }
+.stApp [data-testid="stCaptionContainer"],
+.stApp [data-testid="stCaptionContainer"] * { color: var(--ink-muted) !important; opacity: 1 !important; }
+.stApp [data-testid="stMetricValue"] { font-weight: 500 !important; letter-spacing: -0.03em; }
+.stApp [data-testid="stMetricDelta"],
+.stApp [data-testid="stMetricDelta"] * { color: var(--ink-muted) !important; }
+.stApp hr { border-color: var(--line) !important; }
+
+/* ---- Restyle of the classes PhishGuard and OSHC define ---- */
+.stApp .title {
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor;
+  color: var(--ink) !important;
+  font-family: inherit !important;
+  font-size: 38px !important;
+  font-weight: 500 !important;
+  line-height: 48px !important;
+  letter-spacing: -0.03em;
+}
+.stApp .box {
+  background: var(--band-2) !important;
+  border: 0 !important;
+  border-radius: 1px !important;
+  box-shadow: none !important;
+  padding: 8px !important;
+}
+.stApp .box small { color: var(--ink-muted) !important; }
+.stApp .box b { color: var(--ink) !important; font-weight: 500 !important; }
+.stApp .mail,
+.stApp .card {
+  background: #fff !important;
+  border: 1px solid var(--line) !important;
+  border-left: 4px solid var(--tile-1) !important;
+  border-radius: 1px !important;
+  color: var(--ink) !important;
+}
+.stApp .mail .meta { color: var(--ink-muted) !important; }
+.stApp .mail .btn { border-radius: 1px !important; }
+.stApp .mail.ok,
+.stApp .card.ok { background: var(--ok-tint) !important; border-left-color: var(--tile-2) !important; }
+.stApp .mail.bad,
+.stApp .card.bad { background: var(--bad-tint) !important; border-left-color: var(--primary) !important; }
+.stApp .url {
+  background: var(--band-2) !important;
+  border: 1px dashed var(--ink-muted) !important;
+  border-radius: 1px !important;
+  color: var(--ink) !important;
+}
+.stApp .dom { background: #FFC030 !important; color: var(--ink) !important; box-shadow: none !important; }
+.stApp .dim { color: var(--ink-muted) !important; }
+.stApp .strike { color: var(--primary-dark) !important; }
+.stApp .badge {
+  background: #fff !important;
+  border: 2px solid var(--ink) !important;
+  border-radius: 1px !important;
+  color: var(--ink) !important;
+}
+.stApp .badge.off {
+  opacity: 1 !important;
+  background: var(--band-2) !important;
+  border-color: var(--line) !important;
+  color: var(--ink-muted) !important;
+}
+
+/* ---- Restyle of Vishguard's own CSS and page ---- */
+.stApp .welcome-section { padding: 0 0 24px !important; text-align: left !important; }
+.stApp .welcome-section h1 { color: var(--ink) !important; }
+.stApp .welcome-section h2 { font-size: 28px !important; line-height: 32px !important; }
+.stApp .welcome-section p { font-size: 20px !important; line-height: 32px !important; }
+.stApp .intro-section {
+  background: var(--band-2) !important;
+  border-radius: 1px !important;
+  color: var(--ink) !important;
+  padding: 24px !important;
+}
+.stApp .intro-section h2 {
+  color: var(--ink) !important;
+  font-size: 28px !important;
+  line-height: 32px !important;
+  padding: 0 0 8px !important;
+}
+.stApp .st-key-home_beginner div.stButton > button,
+.stApp .st-key-home_intermediate div.stButton > button,
+.stApp .st-key-home_advanced div.stButton > button {
+  justify-content: flex-start !important;
+  min-height: 75px !important;
+  padding: 19px 48px 17px 16px !important;
+  background: var(--tile-2) var(--chevron-white) no-repeat right 16px center !important;
+  border-color: var(--tile-2) !important;
+  color: #fff !important;
+  text-align: left !important;
+}
+.stApp .st-key-home_beginner div.stButton > button > div,
+.stApp .st-key-home_intermediate div.stButton > button > div,
+.stApp .st-key-home_advanced div.stButton > button > div { width: 100%; justify-content: flex-start !important; }
+.stApp .st-key-home_beginner div.stButton > button p,
+.stApp .st-key-home_intermediate div.stButton > button p,
+.stApp .st-key-home_advanced div.stButton > button p {
+  color: #fff !important;
+  font-size: 17.6px !important;
+}
+.stApp .st-key-home_beginner div.stButton > button:hover,
+.stApp .st-key-home_intermediate div.stButton > button:hover,
+.stApp .st-key-home_advanced div.stButton > button:hover {
+  background-color: #006B73 !important;
+  border-color: #006B73 !important;
+  color: #fff !important;
+}
+.stApp .st-key-home_intermediate,
+.stApp .st-key-home_advanced { margin-top: calc(-1rem + 1px) !important; }
+
+/* ---- Phones ---- */
+@media (max-width: 767px) {
+  .stApp h1 { font-size: 33px !important; line-height: 40px !important; }
+  .stApp h2 { font-size: 28px !important; line-height: 32px !important; }
+  .stApp h3 { font-size: 23px !important; line-height: 32px !important; }
+  .stApp h4 { font-size: 19px !important; line-height: 24px !important; }
+  .stApp .title { font-size: 28px !important; line-height: 32px !important; }
+  .stApp .welcome-section h2,
+  .stApp .intro-section h2 { font-size: 23px !important; line-height: 32px !important; }
+  .stApp .welcome-section p { font-size: 18px !important; }
+  .stApp .hud { flex-wrap: wrap; }
+  .stApp .hud .box { flex: 1 1 calc(50% - 8px); }
+  .stApp div.stButton > button { min-height: 44px !important; }
+  .stApp [data-testid="stExpander"] summary { min-height: 44px; }
+  .ui-btn { min-height: 44px; }
+  .ui-btn--lg { min-height: 56px; width: 100%; line-height: 52px; }
+  .ui-btn--pill { min-height: 44px; line-height: 34px; }
+  .st-key-module-body { padding: 24px 16px 64px !important; }
+}
+
+/* ---- Respect reduced motion for the modules' pop and glitch effects ---- */
+@media (prefers-reduced-motion: reduce) {
+  .stApp .pop, .stApp .bad { animation: none !important; }
+  [data-testid="stMain"] { scroll-behavior: auto; }
+}

@@ -1,0 +1,369 @@
+/* ------------------------------------------------------------------
+   Home page layout. Sections are full width and each one centres its
+   own 1116px of content.
+   ------------------------------------------------------------------ */
+[class*="st-key-sec-"] { gap: 0 !important; }
+
+[class*="st-key-sec-"] {
+  --side: max(16px, calc((100% - 1116px) / 2));
+  padding-left: var(--side) !important;
+  padding-right: var(--side) !important;
+}
+.st-key-sec-steps,
+.st-key-sec-why { padding-top: 80px !important; padding-bottom: 80px !important; background: #fff; }
+.st-key-sec-why { padding-top: 0 !important; }
+.st-key-sec-practise { padding-top: 64px !important; padding-bottom: 64px !important; background: var(--band-1); }
+.st-key-sec-help { padding-top: 48px !important; padding-bottom: 64px !important; background: var(--band-2); }
+.st-key-sec-print { padding-top: 64px !important; padding-bottom: 64px !important; background: var(--band-1); }
+
+/* Anchor targets sit clear of the top of the scroll area */
+.hm-anchor { display: block; scroll-margin-top: 16px; }
+
+/* ---- Header ---- */
+.hm-header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  min-height: 64px;
+  padding: 8px max(16px, calc((100% - 1116px) / 2));
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.hm-nav { display: flex; gap: 24px; flex: 1; }
+.hm-nav a { color: var(--ink) !important; text-decoration: none; }
+.hm-nav a:hover { text-decoration: underline; }
+.hm-menu { display: none; margin-left: auto; position: relative; }
+.hm-menu summary {
+  display: flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 8px; cursor: pointer; list-style: none;
+}
+.hm-menu summary::-webkit-details-marker { display: none; }
+.hm-menu nav {
+  position: absolute; right: 0; top: 100%; z-index: 20;
+  display: flex; flex-direction: column;
+  min-width: 200px; padding: 8px 0;
+  background: #fff; border: 1px solid var(--line);
+}
+.hm-menu nav a {
+  display: flex; align-items: center;
+  min-height: 44px; padding: 0 16px;
+  color: var(--ink) !important; text-decoration: none;
+}
+
+/* ---- Hero ---- */
+.st-key-sec-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  padding-top: 44px !important;
+  padding-bottom: 72px !important;
+  background: var(--primary);
+}
+.hm-hero { max-width: 640px; color: #fff; }
+.hm-eyebrow { margin: 0 0 12px; color: #fff; font-size: 16px; font-weight: 500; line-height: 24px; }
+.hm-hero h1 { margin: 0 0 24px; color: #fff !important; }
+.hm-hero p.hm-intro { margin: 0 0 32px; color: #fff; font-size: 20px; line-height: 32px; }
+.hm-hero a { color: #fff; }
+.hm-nowrap { white-space: nowrap; }
+.st-key-hero-actions {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+  max-width: 640px;
+  position: relative;
+  z-index: 2;
+}
+.st-key-hero-actions > div { width: auto !important; flex: 0 0 auto !important; }
+.stApp .st-key-hero_start div.stButton > button {
+  min-height: 48px !important;
+  padding: 0 24px !important;
+  background: #fff !important;
+  border-color: #fff !important;
+  color: var(--ink) !important;
+}
+.stApp .st-key-hero_start div.stButton > button p { font-size: 18px !important; color: var(--ink) !important; }
+.stApp .st-key-hero_start div.stButton > button:hover { background: var(--band-2) !important; border-color: var(--band-2) !important; }
+
+/* Hero artwork sits on the right and runs off the screen edge */
+.st-key-hero-art {
+  position: absolute !important;
+  top: 0; right: 0; bottom: 0;
+  width: calc(50% - 106px) !important;
+  z-index: 1;
+}
+.hm-art { position: relative; width: 100%; height: 100%; min-height: 600px; }
+.hm-art > img.hm-art__tiles {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: left center;
+}
+.hm-art > img.hm-art__photo {
+  position: absolute; left: 50%; bottom: 0;
+  transform: translateX(-50%);
+  height: 92%; width: auto; max-width: none;
+}
+.hm-placeholder {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  width: min(300px, 78%);
+  padding: 20px;
+  background: #fff;
+  border: 2px dashed var(--ink);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+.hm-placeholder img { display: block; margin: 0 auto 8px; }
+.hm-placeholder strong { display: block; margin-bottom: 4px; font-weight: 600; }
+.hm-placeholder code { font-size: 12px; word-break: break-all; background: none; color: var(--ink); }
+
+/* ---- Task card: overlaps the hero by 32px ---- */
+.st-key-sec-task { background: #fff; }
+.st-key-task-card {
+  position: relative;
+  z-index: 3;
+  gap: 16px !important;
+  margin-top: -32px;
+  padding: 24px 32px !important;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px rgba(0,0,0,.14), 0 1px 8px rgba(0,0,0,.12);
+}
+.hm-task-head h2 { margin: 0; font-size: 28px !important; line-height: 32px !important; }
+.hm-task-head p { margin: 4px 0 0; }
+
+/* ---- Activity tiles ---- */
+.st-key-tiles [data-testid="stHorizontalBlock"] { gap: 7px !important; }
+.st-key-tiles [data-testid="stColumn"] > [data-testid="stVerticalBlock"],
+.st-key-tiles [data-testid="stColumn"] [data-testid="stLayoutWrapper"] { height: 100%; align-items: stretch; }
+[class*="st-key-tile-"] {
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  min-height: 220px;
+  height: 100%;
+  padding: 24px !important;
+  background: var(--tile-1);
+  color: #fff;
+  transition: background-color 0.2s ease-in-out;
+}
+[class*="st-key-tile-"]:hover { background: #34459A; }
+[class*="st-key-tile-"] [data-testid="stElementContainer"],
+[class*="st-key-tile-"] .stButton,
+[class*="st-key-tile-"] [data-testid="stButton"],
+[class*="st-key-tile-"] [data-testid="stTooltipHoverTarget"] { position: static !important; width: 100% !important; }
+.hm-tile img { display: block; margin-bottom: 16px; }
+.hm-tile__meta { margin: 0 0 8px; color: #fff; font-size: 14px; line-height: 20px; }
+.hm-tile__name { margin: 0 0 8px; color: #fff; font-size: 21px; font-weight: 600; line-height: 24px; letter-spacing: -0.03em; }
+.hm-tile__desc { margin: 0 0 16px; color: #fff; font-size: 16px; line-height: 24px; }
+[class*="st-key-tile-"] > div:last-child { margin-top: auto; }
+.stApp [class*="st-key-tile-"] div.stButton > button {
+  justify-content: flex-start !important;
+  width: 100% !important;
+  min-height: 32px !important;
+  padding: 0 32px 0 0 !important;
+  background: transparent var(--chevron-white) no-repeat right center !important;
+  border: 0 !important;
+  color: #fff !important;
+}
+.stApp [class*="st-key-tile-"] div.stButton > button > div { width: 100%; justify-content: flex-start !important; }
+.stApp [class*="st-key-tile-"] div.stButton > button p {
+  color: #fff !important;
+  font-weight: 600 !important;
+  text-decoration: underline;
+}
+/* The whole tile is the click target */
+.stApp [class*="st-key-tile-"] div.stButton > button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.stApp [class*="st-key-tile-"] div.stButton > button:focus-visible {
+  outline: none !important;
+}
+.stApp [class*="st-key-tile-"] div.stButton > button:focus-visible::after {
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+.stApp [class*="st-key-tile-"] div.stButton > button:hover { background-color: transparent !important; color: #fff !important; }
+.stApp [class*="st-key-tile-"] div.stButton > button:disabled { opacity: 0.8; }
+
+/* ---- Steps ---- */
+.hm-center { text-align: center; }
+.hm-section-title { margin: 0 0 40px; text-align: center; }
+.hm-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; }
+.hm-steps img { display: block; margin: 0 auto 16px; }
+.hm-steps h4 { margin: 0 0 8px; }
+.hm-steps p { margin: 0 auto; max-width: 340px; }
+.hm-pair { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+
+/* ---- Promo card ---- */
+.st-key-why-card {
+  overflow: hidden;
+  padding: 0 !important;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.st-key-why-card [data-testid="stHorizontalBlock"] { gap: 0 !important; align-items: stretch; }
+.st-key-why-text { gap: 0 !important; padding: 32px !important; }
+.hm-why h3 { margin: 0 0 12px; }
+.hm-why p { margin: 0 0 24px; }
+.st-key-why-card [data-testid="stColumn"]:last-child { position: relative; min-height: 280px; }
+.st-key-why-card [data-testid="stColumn"]:last-child > div,
+.st-key-why-card [data-testid="stColumn"]:last-child [data-testid="stVerticalBlock"],
+.st-key-why-card [data-testid="stColumn"]:last-child [data-testid="stElementContainer"],
+.st-key-why-card [data-testid="stColumn"]:last-child [data-testid="stHtml"] { position: static !important; }
+.hm-why-art { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- Benefits grid ---- */
+.st-key-practise-grid { gap: 40px !important; }
+.st-key-practise-grid [data-testid="stHorizontalBlock"] { flex-wrap: nowrap !important; gap: 48px !important; }
+.st-key-practise-grid [data-testid="stColumn"] { min-width: 0 !important; flex: 1 1 0 !important; }
+[class*="st-key-benefit-"] {
+  position: relative;
+  gap: 8px !important;
+  padding-left: 64px !important;
+}
+.hm-benefit { position: relative; }
+.hm-benefit img { position: absolute; left: -64px; top: 0; }
+.hm-benefit h4 { margin: 0 0 8px; }
+.hm-benefit p { margin: 0; }
+.hm-text-link { color: var(--link) !important; text-decoration: none; }
+.hm-text-link:hover { text-decoration: underline; }
+.stApp [class*="st-key-benefit-"] div.stButton > button {
+  min-height: 24px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--link) !important;
+}
+.stApp [class*="st-key-benefit-"] div.stButton > button p { color: var(--link) !important; }
+.stApp [class*="st-key-benefit-"] div.stButton > button:hover { background: transparent !important; text-decoration: underline; }
+
+/* ---- Help block with stacked link buttons ---- */
+.hm-help-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+.hm-help-grid .hm-art { min-height: 300px; }
+.hm-help-grid .hm-art > img.hm-art__tiles { object-position: center; }
+.hm-stack { display: flex; flex-direction: column; gap: 1px; }
+.hm-stack a {
+  flex: 1;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  box-sizing: border-box;
+  min-height: 75px;
+  padding: 19px 16px 17px;
+  background: var(--tile-3);
+  color: #fff !important;
+  font-size: 17.6px;
+  line-height: 24px;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+.hm-stack a:hover { background: #2A3345; }
+.hm-stack a img { flex: 0 0 auto; }
+.hm-stack b { font-weight: 500; }
+
+/* ---- Small print ---- */
+.hm-print { font-size: 14px; line-height: 24px; }
+.hm-print h5 {
+  margin: 0 0 16px;
+  font-size: 21px !important;
+  line-height: 24px !important;
+}
+.hm-print p { margin: 0 0 12px; }
+
+/* ---- Footer ---- */
+.hm-footer { background: var(--footer); color: #fff; }
+.hm-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding: 48px max(16px, calc((100% - 1116px) / 2));
+}
+.hm-footer h4 { margin: 0 0 16px; color: #fff !important; }
+.hm-footer ul { margin: 0; padding: 0; list-style: none; }
+.hm-footer li { margin: 0 0 8px; line-height: 24px; }
+.hm-footer a { color: #fff !important; text-decoration: none; }
+.hm-footer a:hover { text-decoration: underline; }
+.hm-footer p { margin: 0; }
+.hm-footer__accordions { display: none; padding: 24px 16px; }
+.hm-footer__accordions details { border-bottom: 1px solid #fff; }
+.hm-footer__accordions summary {
+  display: flex; align-items: center;
+  min-height: 56px; cursor: pointer;
+  font-size: 19px; font-weight: 500; letter-spacing: -0.03em;
+}
+.hm-footer__accordions ul, .hm-footer__accordions p { padding: 0 0 16px; }
+.hm-footer__accordions a { display: inline-flex; align-items: center; min-height: 44px; }
+.hm-footer__bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px;
+  padding: 20px max(16px, calc((100% - 1116px) / 2));
+  background: var(--footer-bar);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* ---- Tablet: hero text and art share the width ---- */
+@media (min-width: 768px) and (max-width: 1147px) {
+  .hm-hero, .st-key-hero-actions { max-width: 54%; }
+  .hm-hero h1 { font-size: 40px !important; line-height: 44px !important; }
+  .st-key-hero-art { width: 42% !important; }
+  .hm-footer__cols { grid-template-columns: repeat(2, 1fr); }
+  .st-key-tiles [data-testid="stColumn"] { min-width: 0 !important; }
+}
+
+/* ---- Below 768px: stack everything ---- */
+@media (max-width: 767px) {
+  .hm-nav { display: none; }
+  .hm-header { gap: 8px; }
+  .hm-menu { display: block; }
+
+  .st-key-sec-hero { min-height: 0; padding-top: 32px !important; padding-bottom: 64px !important; }
+  .hm-hero p.hm-intro { font-size: 18px; }
+  .st-key-hero-actions > div { width: 100% !important; flex: 1 1 100% !important; }
+  .stApp .st-key-hero_start div.stButton > button { width: 100% !important; min-height: 56px !important; }
+  .st-key-hero-art {
+    position: relative !important;
+    top: auto; right: auto; bottom: auto;
+    width: calc(100% + 32px) !important;
+    max-width: none !important;
+    margin: 32px -16px -64px;
+  }
+  .hm-art { min-height: 340px; }
+
+  .st-key-task-card { padding: 24px 16px !important; }
+  .st-key-sec-task { padding-bottom: 56px !important; }
+  [class*="st-key-tile-"] { min-height: 0; }
+  .st-key-tiles [data-testid="stHorizontalBlock"] { flex-direction: column; }
+  .st-key-tiles [data-testid="stColumn"] { width: 100% !important; flex: 1 1 100% !important; min-width: 100% !important; }
+
+  .st-key-sec-steps { padding-top: 0 !important; padding-bottom: 56px !important; }
+  .st-key-sec-why { padding-bottom: 56px !important; }
+  .hm-section-title { margin-bottom: 24px; }
+  .hm-steps { grid-template-columns: 1fr; gap: 32px; }
+  .hm-pair .ui-btn { flex: 1 1 100%; }
+
+  .st-key-why-card [data-testid="stHorizontalBlock"] { flex-direction: column; }
+  .st-key-why-card [data-testid="stColumn"] { width: 100% !important; flex: 1 1 100% !important; min-width: 100% !important; }
+  .st-key-why-text { padding: 24px 16px !important; }
+  .st-key-why-card [data-testid="stColumn"]:last-child { min-height: 220px; }
+
+  .st-key-sec-practise { padding-top: 48px !important; padding-bottom: 48px !important; }
+  .st-key-practise-grid [data-testid="stHorizontalBlock"] { flex-direction: column; gap: 32px !important; }
+  .st-key-practise-grid [data-testid="stColumn"] { width: 100% !important; flex: 1 1 100% !important; min-width: 100% !important; }
+  .stApp [class*="st-key-benefit-"] div.stButton > button { min-height: 44px !important; }
+  .hm-text-link { display: inline-flex; align-items: center; min-height: 44px; }
+
+  .hm-help-grid { grid-template-columns: 1fr; }
+  .hm-print a { display: inline-flex; align-items: center; min-height: 44px; }
+
+  .hm-footer__cols { display: none; }
+  .hm-footer__accordions { display: block; }
+  .hm-footer__bar a { display: inline-flex; align-items: center; min-height: 44px; }
+  .hm-intro a { display: inline-block; padding: 10px 14px; margin: -10px -14px; line-height: 24px; }
+}

@@ -1,0 +1,25 @@
+# Run from the repo root (streamlit run app.py) so this file is picked up.
+[client]
+toolbarMode = "minimal"
+
+[server]
+enableStaticServing = true
+
+[theme]
+base = "light"
+primaryColor = "#DD0822"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F2F4F7"
+textColor = "#111826"
+linkColor = "#4054B8"
+borderColor = "#D8DBE3"
+baseRadius = "4px"
+buttonRadius = "1px"
+font = "DM Sans"
+headingFontWeights = 500
+
+[[theme.fontFaces]]
+family = "DM Sans"
+url = "app/static/fonts/DMSans-latin-wght.woff2"
+weight = "100 1000"
+style = "normal"
