@@ -56,7 +56,7 @@ The one exception is the Advanced Vishguard level. If you record a response ther
 
 ## The team
 
-- **[Ibrahim](https://github.com/IB-MIL)
+- **[IB-MIL](https://github.com/IB-MIL)
 - **[waltuh9283](https://github.com/waltuh9283)
 - **[rae3264](https://github.com/rae3264)
 - **[M-Mendis](https://github.com/M-Mendis)
